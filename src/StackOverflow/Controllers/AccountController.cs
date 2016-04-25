@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Mvc;
 using StackOverflow.Models;
+using StackOverflow.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,26 @@ namespace StackOverflow.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register (RegisterViewModel model)
+        {
+            var user = new ApplicationUser { UserName = model.Email };
+            IdentityResult result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                return View();
+            }
         }
     }
 }

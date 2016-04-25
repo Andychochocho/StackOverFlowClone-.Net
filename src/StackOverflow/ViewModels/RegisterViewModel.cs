@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StackOverflow.ViewModels
 {
-    public class RegisterViewModels
+    public class RegisterViewModel
     {
         [Required]
         [EmailAddress]
