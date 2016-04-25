@@ -1,0 +1,26 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using System.Security.Claims
+@model IEnumerable<StackOverflow.Models.Response>
+
+<h2>Here are your list of tasks, @User.GetUserName()</h2>
+<hr />
+@if (Model.Any())
+{
+    <ul>
+        @foreach (var listResponse in Model)
+        {
+            <li>@Html.DisplayFor(modelResponse => listResponse.Description)</li>
+        }
+    </ul>
+}
+
+else
+{
+    <p>No responses have been added!</p>
+}
+
+@Html.ActionLink("Create new", "Create")
