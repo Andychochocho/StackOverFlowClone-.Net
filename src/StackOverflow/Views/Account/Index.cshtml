@@ -11,6 +11,10 @@
 @if (User.IsSignedIn())
 {
     <p>Hello @User.GetUserName()!</p>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+        <input type="submit" class="btn btn-success" value="Log Out" />
+    }
 }
 
 else
