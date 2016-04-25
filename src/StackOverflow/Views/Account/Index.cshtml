@@ -6,19 +6,5 @@
 @using System.Security.Claims
 
 <h2>Authentication with Identity</h2>
-
-
-@if (User.IsSignedIn())
-{
-    <p>Hello @User.GetUserName()!</p>
-    @using (Html.BeginForm("LogOff", "Account"))
-    {
-        <input type="submit" class="btn btn-success" value="Log Out" />
-    }
-}
-
-else
-{
-    @*<p>@Html.ActionLink("Register", "Register")</p>
-    <p>@Html.ActionLink("Log in", "Login")</p>*@
-}
+<hr />
+<p>@Html.ActionLink("Go to responses!", "Index", "StackOverflow")</p>

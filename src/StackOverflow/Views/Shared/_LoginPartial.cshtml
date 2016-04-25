@@ -2,16 +2,14 @@
 
 @if (User.IsSignedIn())
 {
-    <form asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm" class="navbar-right">
-        <ul class="nav navbar-nav navbar-right">
-            <li>
-                <a asp-controller="Manage" asp-action="Index" title="Manage">Hello @User.GetUserName()!</a>
-            </li>
-            <li>
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Log off</button>
-            </li>
-        </ul>
-    </form>
+    @using (Html.BeginForm("LogOff", "Account"))
+    {
+                <input type="submit" class="btn btn-success" value="Log Out" />
+
+                <p>Hello @User.GetUserName()!</p>
+
+
+    }
 }
 else
 {
