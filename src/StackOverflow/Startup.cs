@@ -40,7 +40,7 @@ namespace StackOverflow
         {
             app.UseIISPlatformHandler();
             app.UseIdentity();
-            app.UseMvc(route =>
+            app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
